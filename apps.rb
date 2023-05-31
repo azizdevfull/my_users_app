@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'json'
-require "sqlite3"
+require 'sqlite3'
 
 set('views', './views')
 
