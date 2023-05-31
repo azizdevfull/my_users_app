@@ -21,16 +21,16 @@
                 <th>Age</th>
                 <th>Email</th>
             </tr>
-            <%  @results.collect do |row| %>
+            <%  @results.each do |row| %>
             <tr>
-                <td ><%= row.firstname%></td>
-                <td ><%= row.lastname%></td>
-                <td ><%= row.age%></td>
-                <td ><%= row.email%></td>
+                <td><%= row.firstname %></td>
+                <td><%= row.lastname %></td>
+                <td><%= row.age %></td>
+                <td><%= row.email %></td>
             </tr>
             <% end %>
         </table>
-#         <style>
+         <style>
 
 
     </body>

@@ -11,12 +11,12 @@ class User
     end
 end
 
-    user_data = [1, "John", "Doe", 25, "password123", "john.doe@example.com"]
+    user_data = [1, "Azizbek", "Isroilov", 18, "password", "azizdev.full@gmail.com"]
     user = User.new(user_data)
 
     puts user.id          # 1
-    puts user.firstname   # "John"
-    puts user.lastname    # "Doe"
-    puts user.age         # 25
-    puts user.password    # "password123"
-    puts user.email       # "john.doe@example.com"
+    puts user.firstname   # "Azizbek"
+    puts user.lastname    # "Isroilov"
+    puts user.age         # 18
+    puts user.password    # "password"
+    puts user.email       # "azizdev.full@gmail.com"

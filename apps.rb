@@ -5,7 +5,7 @@ require "sqlite3"
 set('views', './views')
 
 enable :sessions
-
+ 
 set :port, 8080
 set :bind, '0.0.0.0'
 
@@ -75,16 +75,16 @@ class User
     end 
 
     def self.get(user_id)
-        query = <<-REQUEST
+            query = <<-REQUEST
             SELECT * FROM #{$tablename} WHERE id = #{user_id};
-       REQUEST
-
-       asd = ConnectionSqLite.new.execute(query)
-       if asd.any?
-            User.new(asd[0])
-       else
-            nil
-       end
+            REQUEST
+            
+            asd = ConnectionSqLite.new.execute(query)
+            if asd.any?
+                User.new(asd[0])
+            else
+                nil
+            end
     end
 
     def self.all
@@ -161,11 +161,13 @@ put '/users' do
 end
 
 delete '/sign_out' do
-   if session[:user_id]
-    user = User.get(session[:user_id])
-    session[:user_id] = nil
-    "Signed out"
-   end
+    if session[:user_id]
+      user = User.get(session[:user_id])
+      session[:user_id] = nil
+      "Signed out"
+    else
+        "Not authorized"
+    end
 end
 
 delete '/users' do
@@ -176,5 +178,8 @@ delete '/users' do
             session[:user_id] = nil
             "User deleted"
         end
+    
+    else
+            "Not authorized"
     end
 end
